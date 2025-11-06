@@ -19,6 +19,31 @@
     --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+/* ====== Light / Dark Mode Foundations ====== */
+:root {
+  /* Light Mode (default) */
+  --background: #F7F9FC;
+  --surface: #FFFFFF;
+  --text-primary: #2C3E50;
+  --text-secondary: #5A6C7D;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  /* Dark Mode */
+  --background: #1E1E2A;
+  --surface: #2A2A3C;
+  --text-primary: #E6E8F0;
+  --text-secondary: #AAB2C5;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -1212,6 +1237,7 @@ input:focus {
 * {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 
 
 
