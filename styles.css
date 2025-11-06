@@ -167,15 +167,15 @@ header h1 {
 }
 
 .feature-card:nth-child(1) {
-background: linear-gradient(135deg, #B7C9F2, #C8E6C9, #D8C7E8);
+background: linear-gradient(135deg, #E4D4F7, #D8C7E8, #CDBBE5);
 }
 
 .feature-card:nth-child(2) {
-    background: linear-gradient(135deg, #B8A9D4, #D4A5C7);
+background: linear-gradient(135deg, #C6D9F7, #B7C9F2, #A9D0F5);
 }
 
 .feature-card:nth-child(3) {
-    background: linear-gradient(135deg, #F4A261, #E76F51);
+background: linear-gradient(135deg, #C8E6C9, #B2DFDB, #A5D6A7);
 }
 
 .feature-card:hover {
@@ -1212,6 +1212,7 @@ input:focus {
 * {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 
 
 
