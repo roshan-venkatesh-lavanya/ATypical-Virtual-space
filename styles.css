@@ -167,7 +167,7 @@ header h1 {
 }
 
 .feature-card:nth-child(1) {
-    background: linear-gradient(135deg, #6B9BD1, #A8D5BA);
+background: linear-gradient(135deg, #B7C9F2, #C8E6C9, #D8C7E8);
 }
 
 .feature-card:nth-child(2) {
@@ -1212,6 +1212,7 @@ input:focus {
 * {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 
 
 
