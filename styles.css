@@ -810,7 +810,7 @@ header h1 {
     top: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
     color: white;
     padding: 12px 0;
     z-index: 997;
@@ -1212,4 +1212,5 @@ input:focus {
 * {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 
