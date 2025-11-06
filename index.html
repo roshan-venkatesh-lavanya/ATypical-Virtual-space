@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATYPICAL - Virtual Space</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Personalization Modal -->
+    <div id="personalization-modal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome to ATYPICAL!</h2>
+            <p>Let's personalize your space</p>
+            <form id="personalization-form">
+                <div class="form-group">
+                    <label for="user-name">What's your name?</label>
+                    <input type="text" id="user-name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-pronouns">What are your pronouns?</label>
+                    <select id="user-pronouns" required>
+                        <option value="">Select pronouns</option>
+                        <option value="they/them">they/them</option>
+                        <option value="she/her">she/her</option>
+                        <option value="he/him">he/him</option>
+                        <option value="she/they">she/they</option>
+                        <option value="he/they">he/they</option>
+                        <option value="any">any pronouns</option>
+                        <option value="custom">Custom (enter below)</option>
+                    </select>
+                </div>
+                <div class="form-group" id="custom-pronouns-group" style="display: none;">
+                    <label for="custom-pronouns">Enter your pronouns:</label>
+                    <input type="text" id="custom-pronouns" placeholder="e.g., xe/xem, ze/zir">
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" class="btn-primary">Save & Continue</button>
+                    <button type="button" id="skip-personalization" class="btn-secondary">Skip for Now</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Affirmation Banner -->
+    <div id="affirmation-banner" class="affirmation-banner">
+        <div class="affirmation-scroll">
+            <span id="affirmation-text"></span>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>ATYPICAL</h1>
+            <p class="subtitle">A Virtual Space for Neurodivergent Minds</p>
+            <div class="header-actions">
+                <button id="settings-btn" class="icon-btn" title="Settings">⚙️</button>
+                <button id="chat-toggle" class="icon-btn" title="Chat">💬</button>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <button class="nav-btn active" data-section="home">Home</button>
+            <button class="nav-btn" data-section="memory-game">Memory Game</button>
+            <button class="nav-btn" data-section="todo">To-Do List</button>
+            <button class="nav-btn" data-section="music">Music Player</button>
+        </nav>
+
+        <main>
+            <!-- Home Section -->
+            <section id="home" class="section active">
+                <div class="welcome-card">
+                    <h2 id="welcome-message">Welcome to ATYPICAL</h2>
+                    <p id="welcome-description">A calming virtual space designed specifically for ADHD and Autism support.</p>
+                    <div class="feature-cards">
+                        <div class="feature-card" data-section="memory-game" style="cursor: pointer;">
+                            <h3>🎮 Memory & Color Theory Game</h3>
+                            <p>Exercise your memory while learning about colors and their calming effects for ADHD and Autism</p>
+                        </div>
+                        <div class="feature-card" data-section="todo" style="cursor: pointer;">
+                            <h3>✓ To-Do List</h3>
+                            <p>Organize your tasks and focus on what's next</p>
+                        </div>
+                        <div class="feature-card" data-section="music" style="cursor: pointer;">
+                            <h3>🎵 Music Player</h3>
+                            <p>Relax with calming frequencies and soothing sounds</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Memory Game Section -->
+            <section id="memory-game" class="section">
+                <div class="game-container">
+                    <h2>Memory & Color Theory Game</h2>
+                    <p class="game-description">Learn about colors and their calming effects while exercising your memory!</p>
+                    <div class="game-controls">
+                        <button id="start-game" class="btn-primary">Start Game</button>
+                        <button id="reset-game" class="btn-secondary">Reset</button>
+                        <div class="game-stats">
+                            <span>Level: <span id="level">1</span></span>
+                            <span>Score: <span id="score">0</span></span>
+                        </div>
+                    </div>
+                    <div id="game-board" class="game-board"></div>
+                    <div id="game-message" class="game-message"></div>
+                    <div id="color-info-panel" class="color-info-panel"></div>
+                </div>
+            </section>
+
+            <!-- To-Do List Section -->
+            <section id="todo" class="section">
+                <div class="todo-container">
+                    <h2>To-Do Organization</h2>
+                    <div class="todo-input-section">
+                        <input type="text" id="todo-input" placeholder="What needs to be done?" class="todo-input">
+                        <button id="add-todo" class="btn-primary">Add Task</button>
+                    </div>
+                    <div class="todo-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="active">Active</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                    </div>
+                    <div id="todo-list" class="todo-list"></div>
+                    <div class="todo-stats">
+                        <span id="todo-count">0 tasks remaining</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Music Player Section -->
+            <section id="music" class="section">
+                <div class="music-container">
+                    <h2>Calming Music Player</h2>
+                    <div class="music-player">
+                        <div class="frequency-presets">
+                            <h3>Frequency Presets</h3>
+                            <div class="preset-buttons">
+                                <button class="preset-btn" data-freq="432">432 Hz (Natural)</button>
+                                <button class="preset-btn" data-freq="528">528 Hz (Healing)</button>
+                                <button class="preset-btn" data-freq="639">639 Hz (Relationships)</button>
+                                <button class="preset-btn" data-freq="741">741 Hz (Expression)</button>
+                                <button class="preset-btn" data-freq="852">852 Hz (Intuition)</button>
+                                <button class="preset-btn" data-freq="963">963 Hz (Connection)</button>
+                            </div>
+                        </div>
+                        <div class="ambient-sounds">
+                            <h3>Ambient Sounds</h3>
+                            <div class="preset-buttons">
+                                <button class="ambient-btn" data-sound="rain">🌧️ Rain</button>
+                                <button class="ambient-btn" data-sound="waterfall">💧 Waterfall</button>
+                                <button class="ambient-btn" data-sound="countryside">🌾 Countryside</button>
+                                <button class="ambient-btn" data-sound="city">🏙️ City</button>
+                                <button class="ambient-btn" data-sound="ocean">🌊 Ocean Waves</button>
+                                <button class="ambient-btn" data-sound="forest">🌲 Forest</button>
+                            </div>
+                        </div>
+                        <div class="player-controls">
+                            <button id="play-pause" class="play-btn">▶ Play</button>
+                            <button id="stop-music" class="stop-btn">⏹ Stop</button>
+                            <div class="volume-control">
+                                <label for="volume">Volume:</label>
+                                <input type="range" id="volume" min="0" max="100" value="50">
+                                <span id="volume-value">50%</span>
+                            </div>
+                        </div>
+                        <div class="current-frequency">
+                            <p>Currently Playing: <span id="current-freq">None</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Chatbot -->
+    <div id="chatbot-container" class="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Your Support Friend</h3>
+            <button id="close-chat" class="close-chat">&times;</button>
+        </div>
+        <div id="chat-messages" class="chat-messages"></div>
+        <div class="chat-input-container">
+            <input type="text" id="chat-input" placeholder="Type a message..." class="chat-input">
+            <button id="send-chat" class="send-btn">Send</button>
+            <button id="voice-toggle" class="voice-btn" title="Voice Input">🎤</button>
+        </div>
+    </div>
+
+    <!-- Water Reminder Popup -->
+    <div id="water-reminder-popup" class="modal">
+        <div class="modal-content water-popup-content">
+            <h2>💧 Time to Drink Water!</h2>
+            <p>It's been <span id="water-popup-interval"></span> minutes. Stay hydrated!</p>
+            <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
+                <button id="water-popup-ok" class="btn-primary">Got it!</button>
+                <button id="water-popup-snooze" class="btn-secondary">Snooze 5 min</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Persistent Music Player -->
+    <div id="persistent-music-player" class="persistent-music-player">
+        <div class="persistent-player-content">
+            <span id="persistent-track-name">No track playing</span>
+            <div class="persistent-player-controls">
+                <button id="persistent-play-pause" class="persistent-btn">⏸</button>
+                <button id="persistent-stop" class="persistent-btn">⏹</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Settings</h2>
+            <div class="settings-group">
+                <label>
+                    <input type="checkbox" id="voice-assistance-enabled">
+                    Enable Voice Assistance
+                </label>
+                <p class="setting-description">Allow voice input and text-to-speech features</p>
+            </div>
+            <div class="settings-group">
+                <label>
+                    <input type="checkbox" id="affirmations-enabled" checked>
+                    Show Daily Affirmations
+                </label>
+                <p class="setting-description">Display positive affirmations when you visit</p>
+            </div>
+            <div class="settings-group">
+                <h3 style="margin-bottom: 15px; color: var(--primary-color);">💧 Water Intake Reminder</h3>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="water-interval">Remind me every (minutes):</label>
+                    <input type="number" id="water-interval" min="15" max="120" value="60" class="water-input" style="width: 100px; margin-top: 5px;">
+                </div>
+                <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <button id="start-water-reminder" class="btn-primary" style="flex: 1;">Start Reminder</button>
+                    <button id="stop-water-reminder" class="btn-secondary" style="flex: 1;">Stop Reminder</button>
+                </div>
+                <div class="water-status" style="margin-top: 10px; padding: 10px; background: var(--background); border-radius: 8px;">
+                    <p id="water-status-text" style="margin: 0 0 5px 0; font-size: 0.9rem;">Reminder is not active</p>
+                    <p id="water-next-reminder" style="margin: 0; font-size: 0.85rem;"></p>
+                </div>
+            </div>
+            <button id="update-profile" class="btn-secondary">Update Profile</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
