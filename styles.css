@@ -43,6 +43,27 @@ body {
   color: var(--text-primary);
   transition: background 0.4s ease, color 0.4s ease;
 }
+/* ====== Color Themes (Lilac / Blue / Green) ====== */
+:root {
+  --primary-gradient: linear-gradient(135deg, #E4D4F7, #CDBBE5); /* Default Lilac Calm */
+}
+
+[data-color-theme="blue"] {
+  --primary-gradient: linear-gradient(135deg, #C6D9F7, #A9D0F5);
+}
+
+[data-color-theme="green"] {
+  --primary-gradient: linear-gradient(135deg, #C8E6C9, #A5D6A7);
+}
+
+[data-color-theme="lilac"] {
+  --primary-gradient: linear-gradient(135deg, #E4D4F7, #CDBBE5);
+}
+
+/* Apply gradient globally */
+body {
+  background: var(--primary-gradient);
+}
 
 
 body {
@@ -1237,6 +1258,7 @@ input:focus {
 * {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 
 
 
